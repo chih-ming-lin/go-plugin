@@ -15,7 +15,6 @@ import (
 	"os"
 	"os/signal"
 	"os/user"
-	"runtime"
 	"sort"
 	"strconv"
 	"strings"
@@ -526,9 +525,9 @@ func Serve(opts *ServeConfig) {
 }
 
 func serverListener(unixSocketCfg UnixSocketConfig) (net.Listener, error) {
-	if runtime.GOOS == "windows" {
-		return serverListener_tcp()
-	}
+	// if runtime.GOOS == "windows" {
+	// 	return serverListener_tcp()
+	// }
 
 	return serverListener_unix(unixSocketCfg)
 }
